@@ -1,0 +1,45 @@
+//Exercise 13.3
+//sum & average of numbers in text file 
+#include <iostream>  
+#include <fstream>  
+using namespace std;
+
+int main()
+{
+	ifstream input;
+	ofstream output;
+
+	input.open("Exercise13_3.txt");
+
+	int n;
+
+	if (input.fail())
+	{
+		cout << "File does not exist" << endl;
+		cout << "Exit program" << endl;
+		return 0;
+	}
+
+	int total = 0;
+	int count = 0;
+
+	while (!input.eof())
+	{
+		input >> n;
+		total = total + n;
+		count++;
+	}
+
+	double average = 0;
+
+	average = double(total) / double(count);
+	cout << "sum is " << total << "\ncount is " << count 
+		<< "\naverage is " << average;
+	output << average;
+
+	input.close();
+	output.close();
+
+	return 0;
+
+}
