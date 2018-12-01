@@ -1,0 +1,19 @@
+//list 13.12
+//이진입출력_read 함수
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	fstream binaryio("city.dat", ios::in | ios::binary);
+	char s[10]; //10바이트의 배열이며, 각 문자는 1바이트이다. 
+	binaryio.read(s, 10); //10개 까지 잃어 들이겠다. 
+
+	cout << "Number of chars read: " << binaryio.gcount() << endl;
+	s[binaryio.gcount()] = '\0'; //C-문자열 종류 문자 추가
+	cout << s << endl;
+	binaryio.close();
+
+	return 0;
+}
