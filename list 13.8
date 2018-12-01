@@ -1,0 +1,39 @@
+//list 13.8 
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	fstream inout;
+		
+	//파일생성
+	inout.open("city.txt", ios::out);
+
+	//도시쓰기
+	inout << "Dallas" << " " << "Houston" << " " << "Atlanta" << " ";
+	inout.close();
+
+	//파일에 추가
+	inout.open("city.txt", ios::app);
+
+	inout << "Seoul" << " " << "Busan";
+	inout.close();
+
+	string city;
+
+	//파일 열기
+	inout.open("city.txt", ios::in);
+	while (!inout.eof())
+	{
+		inout >> city;
+		cout << city << " ";
+	}
+
+	inout.close();
+
+	return 0;
+
+}
