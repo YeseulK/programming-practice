@@ -20,9 +20,9 @@ int main()
 	//데이터읽기
 	string state;
 
-	while (!input.eof())
+	while (!input.eof()) //파일의 끝이 아니면 계속 실행
 	{
-		getline(input, state, '#');
+		getline(input, state, '#'); //구분문자 #
 		cout << state << endl;
 	}
 
