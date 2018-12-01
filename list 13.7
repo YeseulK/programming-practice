@@ -1,0 +1,46 @@
+//list 13.7
+//get함수, put함수 적용해보기
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	//소스 파일 입력
+	cout << "Enter a source file name: ";
+	string inputFilename;
+	cin>> inputFilename;
+
+	//출력 파일 입력
+	cout << "Enter a target file name: ";
+	string outputFilename;
+	cin >> outputFilename;
+
+	//입력과 출력 스트림 생성
+	ifstream input(inputFilename.c_str()); //데이터를 받아옴
+	ofstream output(outputFilename.c_str()); //데이터를 받아옴
+	//.c_str()은 string의 객체를 배열의 형태로 형변환 
+
+	if (input.fail())
+	{
+		cout << "File does not exist" << endl;
+		cout << "Exit program" << endl;
+		return 0;
+	}
+
+	char ch = input.get();
+	while (!input.eof()) //파일의 끝이 아니면 계속 실행 
+	{
+		output.put(ch); //put함수
+		ch = input.get(); //get함수 
+	}
+
+	input.close();
+	output.close();
+
+	cout << "\nCopy Done" << endl;
+
+	return 0;
+}
